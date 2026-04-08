@@ -9,16 +9,16 @@
         @csrf
         @method('PUT')
         <label for="product_name">Product Name:</label>
-        <input type="text" name="product_name" value=" {{ old('product_name', $posts->product_name) }}" required>
+        <input type="text" name="product_name" value=" {{ old('product_name', $products->product_name) }}" required>
 
         <label for="category">Product category:</label>
-        <input type="text" name="category" value=" {{ old('category', $posts->category) }} required>
+        <input type="text" name="category" value=" {{ old('category', $products->category) }} required>
 
          <label for="desc">Product category:</label>
-        <input type="text" name="desc" value=" {{ old('desc', $posts->desc) }} required>
+        <input type="text" name="desc" value=" {{ old('desc', $products->desc) }} required>
 
         <label for="stock">Product category:</label>
-        <input type="number" name="stock" value=" {{ old('stock', $posts->stock) }} required>
+        <input type="number" name="stock" value=" {{ old('stock', $products->stock) }} required>
 
         
 

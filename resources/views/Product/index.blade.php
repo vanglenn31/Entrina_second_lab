@@ -14,9 +14,9 @@
         <p>Description: {{ $product->description }}</p>
         <p>Stock: {{ $product->stock }}</p>
 
-        <a href="{{ route('products.edit', $product->id) }}">Edit</a>
+        <a href="{{ route('addProd.edit', $product->id) }}">Edit</a>
 
-        <form action="{{ route('products.destroy', $product->id) }}" method="POST">
+        <form action="{{ route('addProd.destroy', $product->id) }}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit">Delete</button>

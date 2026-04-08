@@ -12,8 +12,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $posts = Product::all();
-        return view('index', compact('products'));
+        $products = Product::all();
+        return view('product.index', compact('products'));
     }
 
     /**
@@ -53,7 +53,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $posts = Product::findOrFail($id);
+        $products = Product::findOrFail($id);
         return view('product.edit', compact('products'));
     }
 
@@ -67,8 +67,8 @@ class ProductController extends Controller
         'body' => 'required|min:3',
         ]);
         
-       $post = Product::findOrFail($id);//find the post
-       $post->update($validated);//update the post with the new data
+       $products = Product::findOrFail($id);//find the post
+       $products->update($validated);//update the post with the new data
 
         return redirect()->route('index')->with('success', 'Product updated successfully');
     }
@@ -78,8 +78,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-       $post = Product::findOrFail($id);//find the post
-        $post->delete();//delete the post 
+       $products = Product::findOrFail($id);//find the post
+        $products->delete();//delete the post 
 
         return redirect()->route('index')->with('success', 'Post deleted successfully');
     }
