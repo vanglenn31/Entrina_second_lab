@@ -37,7 +37,7 @@ class ProductController extends Controller
         ]);
 
         Product::create($validated);
-        return redirect()->route('index')->with('success', 'Post created successfully');
+        return redirect()->route('addProd.index')->with('success', 'Post created successfully');
     }
 
     /**
@@ -60,17 +60,19 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product, $id)
+    public function update(Request $request, $id)
     {
         $validated = $request->validate([
-        'title' => 'required|min:2|max:30',
-        'body' => 'required|min:3',
+        'product_name' => 'required',
+        'category' => 'required',
+        'desc' => 'required',
+        'stock' => 'required',
         ]);
         
        $products = Product::findOrFail($id);//find the post
        $products->update($validated);//update the post with the new data
 
-        return redirect()->route('index')->with('success', 'Product updated successfully');
+        return redirect()->route('addProd.index')->with('success', 'Product updated successfully');
     }
 
     /**
@@ -78,9 +80,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-       $products = Product::findOrFail($id);//find the post
+        $products = Product::findOrFail($id);//find the post
         $products->delete();//delete the post 
 
-        return redirect()->route('index')->with('success', 'Post deleted successfully');
+        return redirect()->route('addProd.index')->with('success', 'Product deleted successfully');
     }
 }

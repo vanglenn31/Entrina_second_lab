@@ -6,6 +6,13 @@
     @include('layouts.landingnav')
     <h2>Products</h2>
 
+    
+@if(session('success'))
+    <div style="color:green;">
+        {{ session('success') }}
+    </div>
+@endif
+
 
 @foreach ($products as $product)
     <div style="border:1px solid black; padding:10px; margin:10px;">

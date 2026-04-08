@@ -5,20 +5,20 @@
 @section('main')
     @include('layouts.landingnav')
 
-    <form action="{{ route('addProd.store') }}" method="POST">
+    <form action="{{ route('addProd.update', $products->id) }}" method="POST">
         @csrf
         @method('PUT')
         <label for="product_name">Product Name:</label>
-        <input type="text" name="product_name" value=" {{ old('product_name', $products->product_name) }}" required>
+        <input type="text" name="product_name" value=" {{ old('product_name', $products->product_name) }}" required><br>
 
         <label for="category">Product category:</label>
-        <input type="text" name="category" value=" {{ old('category', $products->category) }} required>
+        <input type="text" name="category" value=" {{ old('category', $products->category) }}" required><br>
 
-         <label for="desc">Product category:</label>
-        <input type="text" name="desc" value=" {{ old('desc', $products->desc) }} required>
+         <label for="desc">Product Discription:</label>
+        <input type="text" name="desc" value=" {{ old('desc', $products->desc) }}" required><br>
 
-        <label for="stock">Product category:</label>
-        <input type="number" name="stock" value=" {{ old('stock', $products->stock) }} required>
+        <label for="stock">Product Stock:</label>
+        <input type="number" name="stock" value="{{ old('stock', $products->stock) }}" required><br>
 
         
 
